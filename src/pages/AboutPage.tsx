@@ -11,7 +11,7 @@ const AboutPage = () => (
       <div className="flex flex-col justify-center">
         <h2 className="font-display font-semibold text-xl mb-4">Your Trusted Auto Parts Partner</h2>
         <p className="text-muted-foreground leading-relaxed mb-4">
-          Since 2005, Parmar Auto House has been a leading supplier of quality auto parts, bearings, hydraulic hoses, agricultural equipment, and industrial components in Gujarat, India.
+          Since 2018, Parmar Auto House has been a leading supplier of quality auto parts, bearings, hydraulic hoses, agricultural equipment, and industrial components in Gujarat, India.
         </p>
         <p className="text-muted-foreground leading-relaxed">
           We pride ourselves on offering genuine products at competitive prices with exceptional customer service. Our team of experts is always ready to help you find the right parts for your needs.

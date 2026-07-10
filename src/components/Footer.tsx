@@ -12,7 +12,7 @@ const Footer = () => (
             <span className="font-display font-bold text-lg">Parmar Auto House</span>
           </div>
           <p className="text-sm opacity-70 leading-relaxed">
-            Your trusted partner for quality auto parts, bearings, pipes, and agricultural equipment since 2005.
+            Your trusted partner for quality auto parts, bearings, pipes, and agricultural equipment since 2018.
           </p>
         </div>
         <div>
