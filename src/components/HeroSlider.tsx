@@ -7,12 +7,20 @@ import { Link } from "react-router-dom";
 import img1 from "@/assets/hero_hydraulic.png";
 import img2 from "@/assets/hero_tractor.png";
 import img3 from "@/assets/hero_bearings.png";
-// Fallback if generated images fail (using existing assets for now to prevent build errors)
-// import img1 from "@/assets/store-photo.jpg";
-// import img2 from "@/assets/Slider-img-1.jpg";
-// import img3 from "@/assets/Slider-img-2.jpg";
+import img4 from "@/assets/swaraj_724_xm.jpg";
 
-const slides = [
+interface Slide {
+    id: number;
+    image: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    link: string;
+    color: string;
+    specs?: Record<string, string>;
+}
+
+const slides: Slide[] = [
     {
         id: 1,
         image: img1,
@@ -39,6 +47,21 @@ const slides = [
         description: "Precision-engineered bearings ensuring longevity and efficiency for your machinery.",
         link: "/shop?category=bearings",
         color: "from-orange-600/20 to-transparent"
+    },
+    {
+        id: 4,
+        image: img4,
+        title: "Swaraj 724 XM",
+        subtitle: "Height Attachment for Agriculture",
+        description: "Innovative high clearance attachment designed for modern agriculture. Ground clearance customizable up to 840mm and more.",
+        link: "/shop?category=farm-equipment",
+        color: "from-yellow-600/20 to-transparent",
+        specs: {
+            "Ground Clearance": "840 mm & More",
+            "Wheel Center": "1372 / 1145 mm",
+            "Width": "1600 / 1320 mm",
+            "Wheel Inside": "1170 / 940 mm"
+        }
     }
 ];
 
@@ -112,6 +135,23 @@ const HeroSlider = () => {
                             >
                                 {slides[current].description}
                             </motion.p>
+
+                            {slides[current].specs && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.45 }}
+                                    className="grid grid-cols-2 gap-3 max-w-md pt-2"
+                                >
+                                    {Object.entries(slides[current].specs || {}).map(([key, value]) => (
+                                        <div key={key} className="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm hover:border-[#39ff14]/30 transition-colors">
+                                            <div className="text-[10px] text-[#39ff14] uppercase tracking-widest font-semibold">{key}</div>
+                                            <div className="text-sm font-bold text-white mt-0.5">{value}</div>
+                                        </div>
+                                    ))}
+                                </motion.div>
+                            )}
+
                             <motion.div
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}

@@ -1,13 +1,13 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import path from "path";
-import { componentTagger } from "lovable-tagger";
-import fs from "fs";
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// Copy media assets from conversation folder to src/assets and public
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const brainDir = "C:/Users/Bhavin Parmar/.gemini/antigravity-ide/brain/f66da201-b30b-4355-8f99-b31fd0154566";
+const targetDir = path.resolve(__dirname, "./public");
 const targetAssetsDir = path.resolve(__dirname, "./src/assets");
-const targetPublicDir = path.resolve(__dirname, "./public");
 
 try {
   if (fs.existsSync(brainDir)) {
@@ -21,34 +21,22 @@ try {
         } else if (file === "media__1783676031848.png") {
           destName = "swaraj_724_xm_info.png";
         }
+        
+        // Copy to public
+        const destPublicPath = path.join(targetDir, destName);
+        fs.copyFileSync(srcPath, destPublicPath);
+        
         // Copy to src/assets
         const destAssetsPath = path.join(targetAssetsDir, destName);
         fs.copyFileSync(srcPath, destAssetsPath);
-        // Copy to public
-        const destPublicPath = path.join(targetPublicDir, destName);
-        fs.copyFileSync(srcPath, destPublicPath);
+        
         console.log(`Copied ${file} to both locations`);
       }
     });
+    console.log("Media copy completed successfully!");
+  } else {
+    console.error(`Brain directory not found: ${brainDir}`);
   }
 } catch (e) {
-  console.error("Error copying files in vite.config.ts:", e);
+  console.error("Error copying files:", e);
 }
-
-
-// https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  server: {
-    host: "::",
-    port: 8080,
-    hmr: {
-      overlay: false,
-    },
-  },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
-}));
