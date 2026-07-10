@@ -1,0 +1,49 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Eye, EyeOff } from "lucide-react";
+import logo from "@/assets/logo.png";
+
+const LoginPage = () => {
+  const [showPw, setShowPw] = useState(false);
+
+  return (
+    <div className="min-h-[80vh] flex items-center justify-center px-4 py-12">
+      <div className="w-full max-w-md bg-card rounded-lg border border-border shadow-lg p-8">
+        <div className="text-center mb-8">
+          <img src={logo} alt="Parmar Auto House" className="h-14 w-14 mx-auto mb-3" />
+          <h1 className="font-display font-bold text-2xl">Welcome Back</h1>
+          <p className="text-sm text-muted-foreground mt-1">Sign in to your account</p>
+        </div>
+        <form className="space-y-4" onSubmit={e => e.preventDefault()}>
+          <div>
+            <label className="text-sm font-medium mb-1.5 block">Email</label>
+            <input type="email" placeholder="you@example.com" className="w-full px-4 py-2.5 rounded-md border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
+          </div>
+          <div>
+            <label className="text-sm font-medium mb-1.5 block">Password</label>
+            <div className="relative">
+              <input type={showPw ? "text" : "password"} placeholder="••••••••" className="w-full px-4 py-2.5 rounded-md border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring pr-10" />
+              <button type="button" onClick={() => setShowPw(!showPw)} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                {showPw ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+              </button>
+            </div>
+          </div>
+          <div className="flex items-center justify-between text-sm">
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" className="rounded border-input" /> Remember me
+            </label>
+            <a href="#" className="text-primary hover:underline">Forgot Password?</a>
+          </div>
+          <button type="submit" className="w-full py-3 rounded-md bg-primary text-primary-foreground font-semibold hover:bg-primary-hover transition-colors">
+            Sign In
+          </button>
+        </form>
+        <p className="text-center text-sm text-muted-foreground mt-6">
+          Don't have an account? <Link to="/register" className="text-primary font-medium hover:underline">Register</Link>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default LoginPage;

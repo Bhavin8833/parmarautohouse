@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 230 30% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 230 30% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 30% 10%;
+    --primary: 127 52% 47%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 237 52% 38%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 230 10% 40%;
+    --accent: 127 52% 47%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 127 52% 47%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 237 52% 38%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 127 52% 47%;
+    
+    --primary-hover: 127 52% 40%;
+    --secondary-hover: 237 52% 30%;
+    --surface: 0 0% 98%;
+    --surface-elevated: 0 0% 100%;
+    --footer-bg: 0 0% 7%;
+    --footer-fg: 0 0% 90%;
+  }
+
+  .dark {
+    --background: 230 30% 6%;
+    --foreground: 0 0% 95%;
+    --card: 230 25% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 230 25% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 127 52% 47%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 237 52% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 230 20% 15%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 127 52% 47%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 230 20% 18%;
+    --input: 230 20% 18%;
+    --ring: 127 52% 47%;
+    --footer-bg: 0 0% 4%;
+    --footer-fg: 0 0% 80%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+}
