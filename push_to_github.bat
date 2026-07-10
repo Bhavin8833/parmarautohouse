@@ -18,7 +18,7 @@ git branch -M main
 echo Configuring remote repository...
 :: Remove origin if it already exists to prevent errors
 git remote remove origin 2>nul
-git remote add origin git@github.com:Bhavin8833/parmarautohouse.git
+git remote add origin https://github.com/Bhavin8833/parmarautohouse.git
 
 echo Pushing to GitHub...
 git push -u origin main
