@@ -16,8 +16,8 @@ try {
       if (file.startsWith("media__")) {
         const srcPath = path.join(brainDir, file);
         let destName = file;
-        if (file === "media__1783675940075.jpg") {
-          destName = "swaraj_724_xm.jpg";
+        if (file === "media__1783675940075.jpg" || file === "media__1783677996587.jpg") {
+          destName = "swaraj_724_xm.png";
         } else if (file === "media__1783676031848.png") {
           destName = "swaraj_724_xm_info.png";
         }

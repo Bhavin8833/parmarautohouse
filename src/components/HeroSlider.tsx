@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import img1 from "@/assets/hero_hydraulic.png";
 import img2 from "@/assets/hero_tractor.png";
 import img3 from "@/assets/hero_bearings.png";
-import img4 from "@/assets/swaraj_724_xm.jpg";
+import img4 from "@/assets/swaraj_724_xm.png";
 
 interface Slide {
     id: number;
