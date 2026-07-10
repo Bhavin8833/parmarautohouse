@@ -22,6 +22,7 @@ import BearingMeasurementPage from "./pages/BearingMeasurementPage";
 import PulleyCalculatorPage from "./pages/PulleyCalculatorPage";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
+import { Analytics } from "@vercel/analytics/react";
 
 import { ProductProvider } from "@/context/ProductContext";
 import { AuthProvider } from "@/context/AuthContext";
@@ -37,6 +38,7 @@ const App = () => (
           <CartProvider>
             <Toaster />
             <Sonner />
+            <Analytics />
             <BrowserRouter>
               <ScrollToTop />
               <Navbar />
